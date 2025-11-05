@@ -1,7 +1,7 @@
 require('dotenv').config();
 const app = require('./src/app');
 
-const PORT = Number(process.env.PORT) || 4000;
+const PORT = Number(process.env.PORT) || 5000;
 app.get('/', (_req, res) => {
   res.json({
     name: 'Codeforces Backend',

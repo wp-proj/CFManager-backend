@@ -17,4 +17,3 @@ app.get('/health', (_req, res) => res.json({ ok: true }));
 app.use('/api', userRoutes);
 app.use(errorHandler);
 
-module.exports = app;
