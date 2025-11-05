@@ -14,6 +14,11 @@ app.use(morgan('dev'));
 
 app.get('/health', (_req, res) => res.json({ ok: true }));
 
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 app.use('/api', userRoutes);
 app.use(errorHandler);
 
