@@ -2,9 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const userRoutes = require('./routes/userRoutes');
-const errorHandler = require('./middleware/errorHandler');
-
+const errorHandler = require('./src/middleware/errorHandler');
+const mongoose = require('mongoose');
 
 const app = express();
 app.use(helmet());
@@ -23,17 +22,12 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/codeforce
 .catch(err => console.error('❌ MongoDB Connection Error:', err));
 
 // Routes
-const teamRoutes = require('./routes/teams');
-const userroute = require('./routes/userRoutes')
-// app.use('/api/teams', teamRoutes);
+const teamRoutes = require('./src/routes/teams');
+const userroute = require('./src/routes/userRoutes')
+app.use('/api/teams', teamRoutes);
 app.use('/api', userroute);
 app.use(errorHandler);
 
 
 const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
-
 module.exports = app;
