@@ -8,4 +8,3 @@ router.get('/user/:username/info', userController.getUserInfo);
 router.get('/user/:username/solved', userController.getSolvedProblems);
 
 module.exports = router;
-module.exports = router;
