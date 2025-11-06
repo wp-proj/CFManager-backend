@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const errorHandler = require('./src/middleware/errorHandler');
+const errorHandler = require('./middleware/errorHandler');
 const mongoose = require('mongoose');
 
 const app = express();
