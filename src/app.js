@@ -22,8 +22,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/codeforce
 .catch(err => console.error('❌ MongoDB Connection Error:', err));
 
 // Routes
-const teamRoutes = require('./src/routes/teams');
-const userroute = require('./src/routes/userRoutes')
+const teamRoutes = require('/routes/teams');
+const userroute = require('/routes/userRoutes')
 app.use('/api/teams', teamRoutes);
 app.use('/api', userroute);
 app.use(errorHandler);
